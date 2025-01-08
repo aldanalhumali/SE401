@@ -2,7 +2,8 @@ public class BuggyCodeExample {
 
     // 1. Method to find the maximum number in an array
     public static int findMax(int[] numbers) {
-        int max = 0; 
+        if (numbers.length == 0) return Integer.MIN_VALUE; // Handle empty array
+        int max = numbers[0]; // Set max to the first element
         for (int i = 1; i < numbers.length; i++) { 
             if (numbers[i] > max) {
                 max = numbers[i];
@@ -13,18 +14,19 @@ public class BuggyCodeExample {
 
     // 2. Method to print the elements of an array
     public static void printArray(int[] arr) {
-        for (int i = 0; i <= arr.length; i++) { 
+        for (int i = 0; i < arr.length; i++) { // Change to i < arr.length
             System.out.println(arr[i]);
         }
     }
 
     // 3. Method to calculate the average of an array
     public static double calculateAverage(int[] numbers) {
+        if (numbers.length == 0) return 0; // Handle empty array
         int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
             sum += numbers[i];
         }
-        return sum / numbers.length; 
+        return (double) sum / numbers.length; // Cast sum to double
     }
 
     // 4. Main method to test the above methods
